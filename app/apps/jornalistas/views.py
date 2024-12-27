@@ -295,9 +295,13 @@ class EditarJornalistaView(View):
         POST = request.POST
         usuario_form = RegisterUserForm(POST)
 
-        print(POST)
+        print("POST: ", POST)
+        print()
+        
         FILES = request.FILES
         print("FILES: ", FILES)
+        print()
+
         request.session['jornalista_data'] = POST
         jornalista = get_object_or_404(Jornalista, pk=pk)
         jornalista_logado = request.user.jornalista
