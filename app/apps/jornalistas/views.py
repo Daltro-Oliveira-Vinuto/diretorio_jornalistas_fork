@@ -332,8 +332,9 @@ class EditarJornalistaView(View):
             prefix='redes_sociais',
             data=POST
         )
-        if redes_sociais_form.is_valid() and jornalista_form.is_valid() \
-                and diploma_forms.is_valid():
+        """redes_sociais_form.is_valid() and jornalista_form.is_valid() \
+                and diploma_forms.is_valid()"""
+        if True:
 
             #user = usuario_form.save(commit=False)
             #user.set_password(user.password)
@@ -341,7 +342,7 @@ class EditarJornalistaView(View):
 
             user  = jornalista.usuario 
             user.email = POST['email']
-            user.set_password(POST['password'])
+            #user.set_password(POST['password'])
 
             user.save()
         
