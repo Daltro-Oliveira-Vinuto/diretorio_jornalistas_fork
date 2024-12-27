@@ -86,10 +86,12 @@
         <div class="row">
           <!-- nome completo -->
               <p class="perfil_nome fs-3">
-                {% if jornalista.show_nome and jornalista.show_sobrenome  %}
-                  {{ jornalista.nome }} {{ jornalista.sobrenome }}
-                {% elif jornalista.nome_de_guerra %}
+                {% if jornalista.nome_de_guerra %}
                   {{ jornalista.nome_de_guerra}}
+
+                {% elif jornalista.show_nome and jornalista.show_sobrenome  %}
+                  {{ jornalista.nome }} {{ jornalista.sobrenome }}
+
                 {% else %}
                   Não informado
                 {% endif %}
