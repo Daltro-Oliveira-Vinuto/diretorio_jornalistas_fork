@@ -88,6 +88,8 @@
               <p class="perfil_nome fs-3">
                 {% if jornalista.show_nome and jornalista.show_sobrenome  %}
                   {{ jornalista.nome }} {{ jornalista.sobrenome }}
+                {% elif jornalista.nome_de_guerra %}
+                  {{ jornalista.nome_de_guerra}}
                 {% else %}
                   Não informado
                 {% endif %}
@@ -99,7 +101,7 @@
           <div class="col-md-4">
 
               <!-- nome de guerra -->
-              <p class="perfil-texto"><span class="perfil_titulo">Nome de guerra: </span>
+              <p class="perfil-texto"><span class="perfil_titulo">Nome Profissional: </span>
                 {% if jornalista.show_nome_de_guerra %}
                   {{ jornalista.nome_de_guerra }}
                 {% else %}
@@ -109,6 +111,7 @@
               <!-- fim de nome de guerra -->
 
               <!-- data de nascimento -->
+               <!--
               <p class="perfil-texto"><span class="perfil_titulo">Data de nascimento: </span>
                 {% if jornalista.show_data_de_nascimento %}
                   {{ jornalista.data_de_nascimento }}
@@ -116,9 +119,11 @@
                   Não informado
                 {% endif %}
               </p>
+              -->
               <!-- fim de data de nascimento -->
 
               <!-- estado  -->
+              <!--
               <p class="perfil-texto"><span class="perfil_titulo">Estado: </span>
 
                 {% if jornalista.show_estado %}
@@ -127,7 +132,18 @@
                   Não informado
                 {% endif %}
               </p>
+              -->
               <!-- fim de estado-->
+
+              <!-- nome da Funcao -->
+              <p class="perfil-texto"><span class="perfil_titulo">Função: </span>
+              {% if jornalista.show_funcao %}
+                {{ jornalista.funcao }}
+              {% else %}
+                Não informado
+              {% endif %}
+            </p>
+            <!-- fim de nome de Funcao-->
           </div>
 
           <div class="col-md-4">
@@ -151,15 +167,7 @@
               </p>
               <!-- fim de nome de Cidade -->
 
-               <!-- nome da Funcao -->
-              <p class="perfil-texto"><span class="perfil_titulo">Função: </span>
-                {% if jornalista.show_funcao %}
-                  {{ jornalista.funcao }}
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim de nome de Funcao-->
+
           </div>
 
           <div class="col-md-4">
