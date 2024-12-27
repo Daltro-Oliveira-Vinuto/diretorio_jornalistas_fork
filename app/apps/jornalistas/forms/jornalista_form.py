@@ -47,7 +47,7 @@ class JornalistaForm(forms.ModelForm):
         ]
 
         labels = {
-            "nome_de_guerra":"Nome Profisional",
+            "nome_de_guerra":"Nome Profissional",
             'minibio':'Minibio',
             'cidade':'Cidade',
             'estado':'Estado',
