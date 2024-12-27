@@ -338,7 +338,7 @@ class EditarJornalistaView(View):
         )
         """redes_sociais_form.is_valid() and jornalista_form.is_valid() \
                 and diploma_forms.is_valid()"""
-        if True:
+        if redes_sociais_form.is_valid() and jornalista_form.is_valid() and diploma_forms.is_valid():
 
             #user = usuario_form.save(commit=False)
             #user.set_password(user.password)
