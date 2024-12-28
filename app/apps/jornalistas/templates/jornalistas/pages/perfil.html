@@ -23,7 +23,7 @@
     {% endif %}
   </div>
 
-  <div class="container" id="">
+  <div class="container h-100"  id="">
 
     <!-- profile data -->
     <div class="row container mb-1 mt-4">
@@ -202,7 +202,7 @@
     <!-- end of confiability percentage -->
 
     <!-- other profile data organized as navs -->
-    <div class="row container ">
+    <div class="row container h-100 ">
       <ul class="nav nav-tabs  bg-light d-flex justify-content-center" id="myTab" role="tablist">
 
         <!-- minibio field -->
@@ -271,9 +271,9 @@
 
       </ul>
 
-      <div class="tab-content" id="myTabContent">
+      <div class="tab-content h-100" id="myTabContent">
         <!-- minibio field -->
-        <div class="tab-pane fade show active" id="minibio" role="tabpanel" aria-labelledby="minimundo-tab">
+        <div class="tab-pane fade show active h-75" id="minibio" role="tabpanel" aria-labelledby="minimundo-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Minibio
           </div>
@@ -287,7 +287,7 @@
         <!-- end of minibio field -->
 
         <!-- experiencia profissional -->
-        <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
+        <div class="tab-pane fade h-100" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Experiência Profissional
           </div>
@@ -331,7 +331,7 @@
         <!-- end of experiencia profisional -->
 
         <!-- CV field -->
-        <div class="tab-pane fade" id="cv" role="tabpanel" aria-labelledby="cv-tab">
+        <div class="tab-pane fade h-100" id="cv" role="tabpanel" aria-labelledby="cv-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Curriculum Vitae
           </div>
@@ -340,12 +340,15 @@
 
             <div class="container text-center">
               {% if jornalista.curriculo %}
+
+              <!--
               <a href="{% url 'jornalistas:download_curriculo' jornalista.pk %}" class="btn btn-primary mb-2">Baixar
                 Currículo Atual</a>
-              <!-- {jornalista.curriculo.path} -->
+                {jornalista.curriculo.path} 
+              -->
 
               
-              <embed id="embedded_pdf" src="data:application/pdf;base64,{{ pdf }}" type="application/pdf" width="800" height="1000">
+              <embed id="embedded_pdf" src="data:application/pdf;base64,{{ pdf }}" type="application/pdf" width="100%" height="100%">
               <!--The width and height fields are necessary, but you may adjust as needed-->
 
 
@@ -360,7 +363,7 @@
         <!-- end of CV field -->
 
         <!-- formacao field -->
-        <div class="tab-pane fade" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
+        <div class="tab-pane fade h-100" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Diploma
           </div>
@@ -401,7 +404,7 @@
         <!-- end of formacao field -->
 
         <!-- idiomas field -->
-        <div class="tab-pane fade" id="idiomas" role="tabpanel" aria-labelledby="idiomas-tab">
+        <div class="tab-pane fade h-100" id="idiomas" role="tabpanel" aria-labelledby="idiomas-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Idiomas
           </div>
@@ -412,7 +415,7 @@
         <!-- end of idiomas field -->
 
 
-        <div class="tab-pane fade" id="publicacoes" role="tabpanel" aria-labelledby="publicacoes-tab">
+        <div class="tab-pane fade h-100" id="publicacoes" role="tabpanel" aria-labelledby="publicacoes-tab">
           <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
             Publicações
           </div>
