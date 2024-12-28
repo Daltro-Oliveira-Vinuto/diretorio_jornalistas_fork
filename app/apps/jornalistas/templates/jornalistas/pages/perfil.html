@@ -1,5 +1,5 @@
-{% extends 'global/base.html' %} 
-{% load static %} 
+{% extends 'global/base.html' %}
+{% load static %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'global/css/cadastro.css' %}">
@@ -8,6 +8,7 @@
   .iti {
     width: 100%
   }
+
   .hide {
     display: none;
   }
@@ -18,10 +19,10 @@
 <main>
   <div>
     {% if message is not None %}
-      <div class="alert alert-{{ message.type }}">{{ message.text }}</div>
+    <div class="alert alert-{{ message.type }}">{{ message.text }}</div>
     {% endif %}
   </div>
-  
+
   <div class="container" id="">
 
     <!-- profile data -->
@@ -29,39 +30,38 @@
 
       <!-- first column of the first row -->
       <div class="col-md-2">
-          <!-- profile picture -->
-         <div class="row foto_outro_perfil ">
-           {% if jornalista.foto %}
-              <div class="profile_other_picture_defined" >
-                  <img src="{{ jornalista.foto.url }}"
-                    class="img_defined"/>
-              </div>
-           {% else %}
-              <div class="profile_other_picture_not_defined" >
-                  <img src="{% static 'jornalistas/img/camera.png' %} " class="img_not_defined"/> 
-              </div>
-            {% endif %}
-         </div>
+        <!-- profile picture -->
+        <div class="row foto_outro_perfil ">
+          {% if jornalista.foto %}
+          <div class="profile_other_picture_defined">
+            <img src="{{ jornalista.foto.url }}" class="img_defined" />
+          </div>
+          {% else %}
+          <div class="profile_other_picture_not_defined">
+            <img src="{% static 'jornalistas/img/camera.png' %} " class="img_not_defined" />
+          </div>
+          {% endif %}
+        </div>
 
-         <div class="row ">
-              <div class="col-md-3">
-                <i class="bi bi-facebook"></i>
-              </div>
+        <div class="row ">
+          <div class="col-md-3">
+            <i class="bi bi-facebook"></i>
+          </div>
 
-              <div class="col-md-3">
-                <img src="{% static '/jornalistas/img/x-social-media-logo-icon.png' %}" class="img_icon_tweeter"/>
-              </div>
+          <div class="col-md-3">
+            <img src="{% static '/jornalistas/img/x-social-media-logo-icon.png' %}" class="img_icon_tweeter" />
+          </div>
 
-              <div class="col-md-3">
-                <i class="bi bi-instagram"></i>
-              </div>
+          <div class="col-md-3">
+            <i class="bi bi-instagram"></i>
+          </div>
 
-              <div class="col-md-3">
-                <i class="bi bi-linkedin"></i>
-              </div>
-         </div>
+          <div class="col-md-3">
+            <i class="bi bi-linkedin"></i>
+          </div>
+        </div>
 
-            <!--
+        <!--
             <h2 class="subtitulo">Redes Sociais</h2>
             <div class="row">
               <div class="col-md-6">
@@ -78,42 +78,42 @@
             </div>
             -->
       </div>
-      <!-- end of first column of the first row--> 
+      <!-- end of first column of the first row-->
 
       <!-- profile personal data -->
       <div class="col-md-10">
 
         <div class="row">
           <!-- nome completo -->
-              <p class="perfil_nome fs-3">
-                {% if jornalista.nome_de_guerra %}
-                  {{ jornalista.nome_de_guerra}}
+          <p class="perfil_nome fs-3">
+            {% if jornalista.nome_de_guerra %}
+            {{ jornalista.nome_de_guerra}}
 
-                {% elif jornalista.show_nome and jornalista.show_sobrenome  %}
-                  {{ jornalista.nome }} {{ jornalista.sobrenome }}
+            {% elif jornalista.show_nome and jornalista.show_sobrenome %}
+            {{ jornalista.nome }} {{ jornalista.sobrenome }}
 
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim do nome completo -->
+            {% else %}
+            Não informado
+            {% endif %}
+          </p>
+          <!-- fim do nome completo -->
         </div>
-      
+
         <div class="row">
           <div class="col-md-4">
 
-              <!-- nome de guerra -->
-              <p class="perfil-texto"><span class="perfil_titulo">Nome Profissional: </span>
-                {% if jornalista.show_nome_de_guerra %}
-                  {{ jornalista.nome_de_guerra }}
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim de nome de guerra -->
+            <!-- nome de guerra -->
+            <p class="perfil-texto"><span class="perfil_titulo">Nome Profissional: </span>
+              {% if jornalista.show_nome_de_guerra %}
+              {{ jornalista.nome_de_guerra }}
+              {% else %}
+              Não informado
+              {% endif %}
+            </p>
+            <!-- fim de nome de guerra -->
 
-              <!-- data de nascimento -->
-               <!--
+            <!-- data de nascimento -->
+            <!--
               <p class="perfil-texto"><span class="perfil_titulo">Data de nascimento: </span>
                 {% if jornalista.show_data_de_nascimento %}
                   {{ jornalista.data_de_nascimento }}
@@ -122,10 +122,10 @@
                 {% endif %}
               </p>
               -->
-              <!-- fim de data de nascimento -->
+            <!-- fim de data de nascimento -->
 
-              <!-- estado  -->
-              <!--
+            <!-- estado  -->
+            <!--
               <p class="perfil-texto"><span class="perfil_titulo">Estado: </span>
 
                 {% if jornalista.show_estado %}
@@ -135,53 +135,53 @@
                 {% endif %}
               </p>
               -->
-              <!-- fim de estado-->
+            <!-- fim de estado-->
 
-              <!-- nome da Funcao -->
-              <p class="perfil-texto"><span class="perfil_titulo">Função: </span>
+            <!-- nome da Funcao -->
+            <p class="perfil-texto"><span class="perfil_titulo">Função: </span>
               {% if jornalista.show_funcao %}
-                {{ jornalista.funcao }}
+              {{ jornalista.funcao }}
               {% else %}
-                Não informado
+              Não informado
               {% endif %}
             </p>
             <!-- fim de nome de Funcao-->
           </div>
 
           <div class="col-md-4">
-              <!-- MTb -->
-              <p class="perfil-texto"><span class="perfil_titulo">MTb: </span>
-                {% if jornalista.show_registro %}
-                  {{ jornalista.registro }}
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim de MTb -->  
+            <!-- MTb -->
+            <p class="perfil-texto"><span class="perfil_titulo">MTb: </span>
+              {% if jornalista.show_registro %}
+              {{ jornalista.registro }}
+              {% else %}
+              Não informado
+              {% endif %}
+            </p>
+            <!-- fim de MTb -->
 
-              <!-- nome de Cidade -->
-              <p class="perfil-texto"><span class="perfil_titulo">Cidade: </span>
-                {% if jornalista.show_cidade%}
-                  {{ jornalista.cidade }}
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim de nome de Cidade -->
+            <!-- nome de Cidade -->
+            <p class="perfil-texto"><span class="perfil_titulo">Cidade: </span>
+              {% if jornalista.show_cidade%}
+              {{ jornalista.cidade }}
+              {% else %}
+              Não informado
+              {% endif %}
+            </p>
+            <!-- fim de nome de Cidade -->
 
 
           </div>
 
           <div class="col-md-4">
-             <!-- Email -->
-              <p class="perfil-texto"><span class="perfil_titulo">E-mail: </span>
-                {% if jornalista.show_email %}
-                  {{ jornalista.usuario.email }}
-                {% else %}
-                  Não informado
-                {% endif %}
-              </p>
-              <!-- fim de email -->  
+            <!-- Email -->
+            <p class="perfil-texto"><span class="perfil_titulo">E-mail: </span>
+              {% if jornalista.show_email %}
+              {{ jornalista.usuario.email }}
+              {% else %}
+              Não informado
+              {% endif %}
+            </p>
+            <!-- fim de email -->
 
           </div>
         </div>
@@ -192,28 +192,29 @@
 
 
     <!-- confiability percentage -->
-    <div class="row container indice_de_confiabilidade mb-1" id = "" >
-        <div class="texto_de_confiabilidade mx-auto w-50">
-          <span>
-            Confiabilidade: 100%
-          </span>
-        </div>
+    <div class="row container indice_de_confiabilidade mb-1" id="">
+      <div class="texto_de_confiabilidade mx-auto w-50">
+        <span>
+          Confiabilidade: 100%
+        </span>
+      </div>
     </div>
     <!-- end of confiability percentage -->
 
-    <!-- other profile data organized as navs --> 
+    <!-- other profile data organized as navs -->
     <div class="row container ">
-        <ul class="nav nav-tabs  bg-light d-flex justify-content-center" id="myTab" role="tablist">
+      <ul class="nav nav-tabs  bg-light d-flex justify-content-center" id="myTab" role="tablist">
 
-          <!-- minibio field -->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="minimundo-tab" data-bs-toggle="tab" data-bs-target="#minibio" type="button" role="tab" aria-controls="minimundo" aria-selected="true">
-              Minibio
-            </button>
-          </li>
-          <!-- end of minibio field -->
+        <!-- minibio field -->
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="minimundo-tab" data-bs-toggle="tab" data-bs-target="#minibio"
+            type="button" role="tab" aria-controls="minimundo" aria-selected="true">
+            Minibio
+          </button>
+        </li>
+        <!-- end of minibio field -->
 
-          <!-- experiencia profissional field --
+        <!-- experiencia profissional field --
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="experiencia-tab" data-bs-toggle="tab" data-bs-target="#experiencia" type="button" role="tab" aria-controls="experiencia" aria-selected="false">
               Experiência profissional
@@ -221,36 +222,38 @@
           </li>
           !-- end of experiencia profissional field -->
 
-          <!-- Curriculum Vitae field -->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="cv-tab" data-bs-toggle="tab" data-bs-target="#cv" type="button" role="tab" aria-controls="cv" aria-selected="false">
-              Curriculum Vitae
-            </button>
-          </li>
-          <!-- end of Curriculum Vitae field -->
+        <!-- Curriculum Vitae field -->
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="cv-tab" data-bs-toggle="tab" data-bs-target="#cv" type="button" role="tab"
+            aria-controls="cv" aria-selected="false">
+            Curriculum Vitae
+          </button>
+        </li>
+        <!-- end of Curriculum Vitae field -->
 
-          {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
 
-             <!--
+        <!--
               {{ user.username }}
               {{ lista_de_revisores }}
               {{ jornalista.usuario }}
               {{ jornalista.usuario|stringformat:"s" }}
               -->
-            {% if user.username in lista_de_revisores %}
+        {% if user.username in lista_de_revisores %}
 
 
-            <!-- formacao field -->
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="formacao-tab" data-bs-toggle="tab" data-bs-target="#formacao" type="button" role="tab" aria-controls="formacao" aria-selected="true">
-                Diploma
-              </button>
-            </li>
-            <!-- end of formacao field -->
-            {% endif %}
-          {% endif %}
+        <!-- formacao field -->
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="formacao-tab" data-bs-toggle="tab" data-bs-target="#formacao" type="button"
+            role="tab" aria-controls="formacao" aria-selected="true">
+            Diploma
+          </button>
+        </li>
+        <!-- end of formacao field -->
+        {% endif %}
+        {% endif %}
 
-          <!-- idiomas field --
+        <!-- idiomas field --
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="idiomas-tab" data-bs-toggle="tab" data-bs-target="#idiomas" type="button" role="tab" aria-controls="idiomas" aria-selected="false">
               Idiomas
@@ -258,7 +261,7 @@
           </li>
           !-- end of idiomas field -->
 
-          <!-- publicacoes field --
+        <!-- publicacoes field --
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="publicacoes-tab" data-bs-toggle="tab" data-bs-target="#publicacoes" type="button" role="tab" aria-controls="publicacoes" aria-selected="false">
               Publicações
@@ -266,158 +269,167 @@
           </li>
           !-- end of publicacoes field -->
 
-        </ul>
+      </ul>
 
-        <div class="tab-content" id="myTabContent">
-          <!-- minibio field -->
-          <div class="tab-pane fade show active" id="minibio" role="tabpanel" aria-labelledby="minimundo-tab">
-              <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                Minibio
-              </div>
-
-              <div class="row card-jornalista w-75">
-                {% for line in  jornalista.minibio.splitlines %}
-                  {{line}} <br>
-                {% endfor %}
-              </div>
+      <div class="tab-content" id="myTabContent">
+        <!-- minibio field -->
+        <div class="tab-pane fade show active" id="minibio" role="tabpanel" aria-labelledby="minimundo-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Minibio
           </div>
-          <!-- end of minibio field -->
 
-          <!-- experiencia profissional -->
-          <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
-            <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                Experiência Profissional
+          <div class="row card-jornalista w-75">
+            {% for line in jornalista.minibio.splitlines %}
+            {{line}} <br>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- end of minibio field -->
+
+        <!-- experiencia profissional -->
+        <div class="tab-pane fade" id="experiencia" role="tabpanel" aria-labelledby="experiencia-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Experiência Profissional
+          </div>
+
+          <div class="row card-jornalista w-75">
+
+            <h2 class="subtitulo">Histórico Profissional</h2>
+            {% for h in jornalista.historicoprofissional_set.all %}
+            <div class="card-jornalista w-75" id="historico-form">
+              <div class="row gy-2 gx-3">
+                <div class="col-md-6">
+                  <p class="perfil-texto"><strong>Veículo de comunicação: </strong>{{ h.veiculo_de_comunicacao }}</p>
+                  <p class="perfil-texto"><strong>Data de início: </strong>{{ h.data_inicio }}</p>
+                  <p class="perfil-texto"><strong>Cargo: </strong>{{ h.cargo }}</p>
+                </div>
+
+                <div class="col-md-6">
+                  <p class="perfil-texto"><strong>Tipo de Veículo: </strong>{{ h.tipo_de_veiculo }}</p>
+                  <p class="perfil-texto"><strong>Data de Termino: </strong>
+                    {% if h.data_termino %}
+                    {{ h.data_termino }}
+                    {% else %}
+                    Cargo Atual
+                    {% endif %}
+                  </p>
+                </div>
               </div>
 
-              <div class="row card-jornalista w-75">
+              <div class="row gy-2 gx-3">
+                <div class="col-md-12">
+                  <p class="perfil-texto"><strong>Descrição: </strong>{{ h.descricao }} </p>
+                </div>
+              </div>
+
+            </div>
+            {% empty %}
+            <p class="perfil-text"><strong>Nenhum Histórico cadastrado</strong></p>
+            {% endfor %}
+          </div>
+        </div>
+        <!-- end of experiencia profisional -->
+
+        <!-- CV field -->
+        <div class="tab-pane fade" id="cv" role="tabpanel" aria-labelledby="cv-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Curriculum Vitae
+          </div>
+
+          <div class="row card-jornalista w-75">
+
+            <div class="container text-center">
+              {% if jornalista.curriculo %}
+              <a href="{% url 'jornalistas:download_curriculo' jornalista.pk %}" class="btn btn-primary mb-2">Baixar
+                Currículo Atual</a>
+              <!-- {jornalista.curriculo.path} -->
+
               
-                  <h2 class="subtitulo">Histórico Profissional</h2>
-                  {% for h in jornalista.historicoprofissional_set.all %}
-                  <div class="card-jornalista w-75" id="historico-form">
-                    <div class="row gy-2 gx-3">
-                      <div class="col-md-6">
-                          <p class="perfil-texto"><strong>Veículo de comunicação: </strong>{{ h.veiculo_de_comunicacao }}</p>
-                          <p class="perfil-texto"><strong>Data de início: </strong>{{ h.data_inicio }}</p>
-                          <p class="perfil-texto"><strong>Cargo: </strong>{{ h.cargo }}</p>
-                      </div>
+              <embed id="embedded_pdf" src="data:application/pdf;base64,{{ pdf }}" type="application/pdf" width="800" height="1000">
+              <!--The width and height fields are necessary, but you may adjust as needed-->
 
-                      <div class="col-md-6">
-                          <p class="perfil-texto"><strong>Tipo de Veículo: </strong>{{ h.tipo_de_veiculo }}</p>
-                          <p class="perfil-texto"><strong>Data de Termino: </strong>
-                            {% if h.data_termino %}
-                            {{ h.data_termino }}
-                            {% else %}
-                            Cargo Atual
-                            {% endif %}
-                        </p>
-                      </div>
-                    </div>
 
-                    <div class="row gy-2 gx-3">
-                        <div class="col-md-12">
-                            <p class="perfil-texto"><strong>Descrição: </strong>{{ h.descricao }} </p>
-                        </div>
-                    </div>
-
-                  </div>
-                  {% empty %}
-                    <p class="perfil-text"><strong>Nenhum Histórico cadastrado</strong></p>
-                  {% endfor %}
-              </div>
+              {% else %}
+              <p class="perfil-text"><strong>Nenhum currículo cadastrado</strong></p>
+              {% endif %}
+              <!-- {{ jornalista.curriculo }} -->
+            </div>
           </div>
-          <!-- end of experiencia profisional -->
 
-          <!-- CV field -->
-          <div class="tab-pane fade" id="cv" role="tabpanel" aria-labelledby="cv-tab">
-              <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                Curriculum Vitae
-              </div>
+        </div>
+        <!-- end of CV field -->
 
-              <div class="row card-jornalista w-75">
-        
-                <div class="container text-center">
-                  {% if jornalista.curriculo %}
-                    <a href="{% url 'jornalistas:download_curriculo' jornalista.pk %}" class="btn btn-primary mb-2">Baixar Currículo Atual</a> 
-                  {% else %}
-                    <p class="perfil-text"><strong>Nenhum currículo cadastrado</strong></p>
-                  {% endif %}
-                  <!-- {{ jornalista.curriculo }} -->
-                </div>
-              </div>
+        <!-- formacao field -->
+        <div class="tab-pane fade" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Diploma
           </div>
-          <!-- end of CV field -->
 
-          <!-- formacao field -->
-          <div class="tab-pane fade" id="formacao" role="tabpanel" aria-labelledby="formacao-tab">
-                <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                  Diploma
-                </div>
-
-                <div class="row d-flex justify-content-center">
-                  <!--
+          <div class="row d-flex justify-content-center">
+            <!--
                    {% for estado in estados %}
                    {{estado}}
                    {% endfor %}
                    -->
-            
-         
-                  {% for d in jornalista.diploma_set.all %}
-                  <div class="card-jornalista w-75 " id="diploma-form">
-                    <div class="row align-items-center justify-content-center">
 
-                      <div class="col-md-12 d-flex justify-content-center">
-                        <!--<img src="{{ d.arquivo.url }}" alt="Imagem do diploma" width='300' height='300'> -->
-                        <img src="{{ d.arquivo.url }}" alt="Imagem do diploma" style="width: 80%; height: 80%">
-                      </div>
 
-                      <div class="col-md-12 d-flex justify-content-center mt-2">
-                        <a href="{% url 'jornalistas:download_diploma' d.pk %}" class="btn btn-primary mb-2">Baixar Diploma</a>
-                        <div class="h6" class="d-flex align-items-center">
-                            <div class="pt-2 ps-1">
-                              <strong>Descrição:</strong> {{ d.descricao }}
-                            </div>
-                        </div>
-                      </div>
+            {% for d in jornalista.diploma_set.all %}
+            <div class="card-jornalista w-75 " id="diploma-form">
+              <div class="row align-items-center justify-content-center">
+
+                <div class="col-md-12 d-flex justify-content-center">
+                  <!--<img src="{{ d.arquivo.url }}" alt="Imagem do diploma" width='300' height='300'> -->
+                  <img src="{{ d.arquivo.url }}" alt="Imagem do diploma" style="width: 80%; height: 80%">
+                </div>
+
+                <div class="col-md-12 d-flex justify-content-center mt-2">
+                  <a href="{% url 'jornalistas:download_diploma' d.pk %}" class="btn btn-primary mb-2">Baixar
+                    Diploma</a>
+                  <div class="h6" class="d-flex align-items-center">
+                    <div class="pt-2 ps-1">
+                      <strong>Descrição:</strong> {{ d.descricao }}
                     </div>
                   </div>
-                    {% empty %}
-                      <p class="perfil-text"><strong>Nenhum Diploma cadastrado</strong></p>
-                    {% endfor %}
                 </div>
+              </div>
+            </div>
+            {% empty %}
+            <p class="perfil-text"><strong>Nenhum Diploma cadastrado</strong></p>
+            {% endfor %}
           </div>
-          <!-- end of formacao field -->
-
-          <!-- idiomas field -->
-          <div class="tab-pane fade" id="idiomas" role="tabpanel" aria-labelledby="idiomas-tab">
-              <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                Idiomas
-              </div>
-
-              <div class="row">
-              </div>
-          </div>
-          <!-- end of idiomas field -->
-
-
-          <div class="tab-pane fade" id="publicacoes" role="tabpanel" aria-labelledby="publicacoes-tab">
-              <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
-                Publicações
-              </div>
-
-              <div class="row">
-              </div>
-          </div>
-
         </div>
-    </div>   
+        <!-- end of formacao field -->
+
+        <!-- idiomas field -->
+        <div class="tab-pane fade" id="idiomas" role="tabpanel" aria-labelledby="idiomas-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Idiomas
+          </div>
+
+          <div class="row">
+          </div>
+        </div>
+        <!-- end of idiomas field -->
+
+
+        <div class="tab-pane fade" id="publicacoes" role="tabpanel" aria-labelledby="publicacoes-tab">
+          <div class="row perfil_topico w-75 mx-auto fs-4 mt-3 mb-3">
+            Publicações
+          </div>
+
+          <div class="row">
+          </div>
+        </div>
+
+      </div>
+    </div>
     <!-- end of other profile data organized as navs -->
 
   </div>
-  
+
 </main>
 {% endblock content %}
 
 {% block scripts %}
 
 {% endblock scripts %}
-

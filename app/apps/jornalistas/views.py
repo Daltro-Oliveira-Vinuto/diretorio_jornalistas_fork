@@ -16,7 +16,9 @@ from apps.autenticacao.forms import RegisterUserForm
 from django.core.paginator import Paginator
 from apps.revisores.models import Revisor
 from django.http import HttpResponse
+from pdf2image import convert_from_path
 import os
+import base64
 
 from apps.opcoes.models import Cidades, Estados
 
@@ -91,7 +93,18 @@ class PerfilJornalistaView(DetailView):
     user_is_revisor = True
     def get_context_data(self,*args, **kwargs):
 
+        pk = self.kwargs['pk']
+        jornalista = get_object_or_404(Jornalista, pk = pk)
+        curriculo_path = jornalista.curriculo.path
+        
+        with open(curriculo_path, "rb") as  pdf_file:
+            #convert pdf to a string
+            pdf_content =  base64.b64encode(pdf_file.read()).decode()
+        
+    
+
         jornalistas = Jornalista.objects.all()
+     
         revisores = Revisor.objects.all()
         list_of_revisors  = [user.usuario.username for user in revisores]
 
@@ -101,7 +114,12 @@ class PerfilJornalistaView(DetailView):
 
         context['estados'] = Estados.objects.all()
         context['user_is_revisor'] = PerfilJornalistaView.user_is_revisor
+
+        context['pdf'] = pdf_content
+        
         return context
+
+
 
 
 class CadastroJornalistaView(View):
