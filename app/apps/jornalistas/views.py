@@ -95,11 +95,13 @@ class PerfilJornalistaView(DetailView):
 
         pk = self.kwargs['pk']
         jornalista = get_object_or_404(Jornalista, pk = pk)
-        curriculo_path = jornalista.curriculo.path
-        
-        with open(curriculo_path, "rb") as  pdf_file:
-            #convert pdf to a string
-            pdf_content =  base64.b64encode(pdf_file.read()).decode()
+
+        if jornalista.curriculo:
+            curriculo_path = jornalista.curriculo.path
+            
+            with open(curriculo_path, "rb") as  pdf_file:
+                #convert pdf to a string
+                pdf_content =  base64.b64encode(pdf_file.read()).decode()
         
     
 
@@ -115,7 +117,8 @@ class PerfilJornalistaView(DetailView):
         context['estados'] = Estados.objects.all()
         context['user_is_revisor'] = PerfilJornalistaView.user_is_revisor
 
-        context['pdf'] = pdf_content
+        if jornalista.curriculo: 
+            context['pdf'] = pdf_content
         
         return context
 

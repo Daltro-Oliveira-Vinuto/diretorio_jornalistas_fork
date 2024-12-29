@@ -21,6 +21,7 @@ function aprovarJornalista(url) {
                 })
         }
     })
+
 }
 
 function reprovarJornalista(url ) {
@@ -47,6 +48,7 @@ function reprovarJornalista(url ) {
             })
         }
     })
+
 }
 
 function aprovarJornalistaRedirect(url) {

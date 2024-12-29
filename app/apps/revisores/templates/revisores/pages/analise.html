@@ -83,11 +83,11 @@
                         <div class="col d-flex justify-content-end">
                             <form id='form_aprovar' style="margin-right: 2rem;">
                                 {% csrf_token %}
-                                <button class="btn btn-primary" type='button' onclick='aprovarJornalista("{% url "revisores:aprovar" jornalista.id %}")'>Aprovar</button>
+                                <button class="btn btn-primary" type='button' onclick='aprovarJornalistaRedirect("{% url "revisores:aprovar" jornalista.id %}")'>Aprovar</button>
                             </form>
                             <form id='form_reprovar'>
                                 {% csrf_token %}
-                                <button class="btn btn-secondary" type='button' onclick='reprovarJornalista("{% url "revisores:reprovar" jornalista.id %}")'>Reprovar</button>
+                                <button class="btn btn-secondary" type='button' onclick='reprovarJornalistaRedirect("{% url "revisores:reprovar" jornalista.id %}")'>Reprovar</button>
                             </form>
                         </div>
                     </div>
