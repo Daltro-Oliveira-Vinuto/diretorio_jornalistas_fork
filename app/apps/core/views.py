@@ -18,12 +18,23 @@ class HomeView(ListView):
         inicial = GET.get('inicial')
         nome = GET.get('nome', None)
 
+        """
         if inicial:
             qs = Jornalista.objects.aprovados().filter(
                     nome_de_guerra__istartswith=inicial
                 ).order_by('-id')
         if nome:
             qs = Jornalista.objects.aprovados().filter(
+                    nome_de_guerra__icontains=nome
+                ).order_by('-id')
+        """
+
+        if inicial:
+            qs = Jornalista.objects.all().filter(
+                    nome_de_guerra__istartswith=inicial
+                ).order_by('-id')
+        if nome:
+            qs = Jornalista.objects.all().filter(
                     nome_de_guerra__icontains=nome
                 ).order_by('-id')
 
