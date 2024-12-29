@@ -341,11 +341,10 @@
             <div class="container text-center">
               {% if jornalista.curriculo %}
 
-              <!--
+              
               <a href="{% url 'jornalistas:download_curriculo' jornalista.pk %}" class="btn btn-primary mb-2">Baixar
                 Currículo Atual</a>
-                {jornalista.curriculo.path} 
-              -->
+              
 
               
               <embed id="embedded_pdf" src="data:application/pdf;base64,{{ pdf }}" type="application/pdf" width="100%" height="100%">
